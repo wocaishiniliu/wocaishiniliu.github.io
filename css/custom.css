@@ -1,0 +1,128 @@
+/* ---------- Flame theme overrides ---------- */
+
+:root {
+    --flame-deep: #c23616;
+    --flame: #ff6b1a;
+    --ember: #ffb347;
+    --ash: #1a1a1a;
+    --ash-soft: #2a2320;
+}
+
+/* Warmer primary across Bootstrap utilities */
+.text-primary { color: var(--flame) !important; }
+.bg-primary   { background-color: var(--ash) !important; }
+a             { color: var(--flame); }
+a:hover       { color: var(--ember); }
+
+/* Sidebar: deep charcoal with warm glow edge */
+#sideNav.navbar {
+    background: radial-gradient(ellipse at top, #2a1810 0%, #0f0a08 70%) !important;
+    border-right: 1px solid rgba(255, 107, 26, 0.15);
+    overflow: hidden;
+}
+
+#sideNav .navbar-brand {
+    position: relative;
+    z-index: 2;
+}
+
+#sideNav .img-profile {
+    border: 3px solid var(--flame);
+    box-shadow: 0 0 24px rgba(255, 107, 26, 0.45);
+}
+
+#sideNav .nav-link {
+    color: #e8d9c8 !important;
+    letter-spacing: 0.08em;
+    position: relative;
+    z-index: 2;
+}
+
+#sideNav .nav-link:hover {
+    color: var(--ember) !important;
+}
+
+/* ---------- Sidebar sparks (animated) ---------- */
+#sideNav::before,
+#sideNav::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#sideNav::before {
+    background-image:
+        radial-gradient(1.5px 1.5px at 20% 15%, #ffd89a 60%, transparent 61%),
+        radial-gradient(1px   1px   at 70% 25%, #ff9a3c 60%, transparent 61%),
+        radial-gradient(1.5px 1.5px at 35% 50%, #ffe0a8 60%, transparent 61%),
+        radial-gradient(1px   1px   at 80% 65%, #ff7a1a 60%, transparent 61%),
+        radial-gradient(1.2px 1.2px at 25% 80%, #ffc674 60%, transparent 61%),
+        radial-gradient(1px   1px   at 60% 90%, #ffb347 60%, transparent 61%);
+    animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+#sideNav::after {
+    background-image:
+        radial-gradient(1px 1px at 50% 10%, #ffd89a 60%, transparent 61%),
+        radial-gradient(1.2px 1.2px at 85% 40%, #ff9a3c 60%, transparent 61%),
+        radial-gradient(1px   1px   at 15% 60%, #ffe0a8 60%, transparent 61%),
+        radial-gradient(1.4px 1.4px at 55% 75%, #ff7a1a 60%, transparent 61%);
+    animation: twinkle 6s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes twinkle {
+    0%   { opacity: 0.25; }
+    50%  { opacity: 0.9;  }
+    100% { opacity: 0.35; }
+}
+
+/* ---------- Prairie-fire tagline ---------- */
+.tagline {
+    display: inline-block;
+    margin: 1.5rem 0 2.5rem 0;
+    padding: 0.6rem 1.2rem;
+    font-family: "Saira Extra Condensed", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    color: var(--flame);
+    border-left: 3px solid var(--flame);
+    background: linear-gradient(90deg, rgba(255, 107, 26, 0.08), transparent);
+}
+
+.tagline .cn {
+    display: block;
+    font-size: 1rem;
+    font-style: normal;
+    color: #8a6a4f;
+    margin-top: 0.25rem;
+    letter-spacing: 0.15em;
+}
+
+/* ---------- Social icons: warmer hover ---------- */
+.social-icons .social-icon {
+    background-color: var(--ash);
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+.social-icons .social-icon:hover {
+    background-color: var(--flame);
+    transform: translateY(-2px);
+}
+
+/* Section h2 underline accent */
+.resume-section h2.mb-5 {
+    position: relative;
+    padding-bottom: 0.6rem;
+}
+.resume-section h2.mb-5::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 3rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--flame), transparent);
+}
